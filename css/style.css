@@ -76,12 +76,18 @@ body {
     display: flex;
 }
 
-.home-img path {
+
+
+.home-image path {
     opacity: 0;
     cursor: pointer;
 }
 
-.home-img path:hover {
+.home-image path:hover {
+    opacity: 1;
+}
+
+path.current-floor {
     opacity: 1;
 }
 
@@ -118,6 +124,7 @@ body {
     line-height: 44px;
     color: #635854;
     margin:0;
+    margin-top: 65px;
 }
 
 .counter {
@@ -134,5 +141,7 @@ body {
     border:none;
     padding: 16px 36px;
     cursor: pointer;
+    margin-bottom: 65px;
 }
+
 
