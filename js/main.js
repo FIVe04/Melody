@@ -3,6 +3,31 @@ $(document).ready(function () {
     var counterUp = $(".counter-up");
     var counterDown = $(".counter-down");
     var floorPath = $('.home-image path');
+    var modalCloseButton = $('.modal-close-button');
+    var modal = $('.modal');
+    var viewFlatsButton = $('.view-flats');
+    var flats = $('.flats path');
+    var flatLink = $('.flat-link');
+    flats.on('click', function () {
+        
+        currentLink = $(this).attr("data-flat");
+        console.log(currentLink);
+        $('.current-flat').removeClass('current-flat');
+        $('.current-link').removeClass('current-link');
+        $(this).toggleClass('current-flat');
+        $(`[data-flatA=${currentLink}]`).toggleClass('current-link');
+        
+    });
+    
+    flats.on('mouseover', function () {
+        currentLink = $(this).attr("data-flat");
+        console.log(currentLink);
+        $('.current-flat').removeClass('current-flat');
+        $('.current-link').removeClass('current-link');
+        $(this).toggleClass('current-flat');
+        $(`[data-flatA=${currentLink}]`).toggleClass('current-link');
+        
+    });
     
     floorPath.on('mouseover', function() {
         floorPath.removeClass('current-floor');
@@ -10,6 +35,9 @@ $(document).ready(function () {
         $('.counter').text(currentFloor);
     });
 
+    floorPath.on('click', toggleModal);
+    modalCloseButton.on('click', toggleModal);
+    viewFlatsButton.on('click', toggleModal);
     counterUp.on("click", function() {
         if (currentFloor < 18) {
             currentFloor++;
@@ -31,4 +59,9 @@ $(document).ready(function () {
         }
         
     });
+
+    function toggleModal() {
+        modal.toggleClass('is-open');
+    }
+
 });
