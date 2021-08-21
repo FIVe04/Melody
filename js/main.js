@@ -8,14 +8,15 @@ $(document).ready(function () {
     var viewFlatsButton = $('.view-flats');
     var flats = $('.flats path');
     var flatLink = $('.flat-link');
-    flats.on('click', function () {
-        
-        currentLink = $(this).attr("data-flat");
+    
+
+    $('.flat-link').on('mouseover', function () {
+        currentLink = $(this).attr("data-flatA");
         console.log(currentLink);
         $('.current-flat').removeClass('current-flat');
         $('.current-link').removeClass('current-link');
-        $(this).toggleClass('current-flat');
-        $(`[data-flatA=${currentLink}]`).toggleClass('current-link');
+        $(this).toggleClass('current-link');
+        $(`[data-flat=${currentLink}]`).toggleClass('current-flat');
         
     });
     
